@@ -4,7 +4,7 @@ import readInput
 import kotlin.math.abs
 
 fun main() {
-    val input = readInput(1).split("\n").map { it.split("   ").map { it.toInt() } }
+    val input = readInput(1).lines().map { it.split("   ").map { it.toInt() } }
     val listA = input.map {it[0]}.sorted()
     val listB = input.map {it[1]}.sorted()
 
