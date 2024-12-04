@@ -29,7 +29,7 @@ fun  List<String>.findMatches(word: String, offsets: List<List<Pair<Int, Int>>>)
                 for (offsetIndex in offsetList.indices) {
                     val xOff = x + offsetList[offsetIndex].first
                     val yOff = y + offsetList[offsetIndex].second
-                    if (xOff < 0 || xOff >= this[y].length || yOff < 0 || yOff >= this.size) continue@direction
+                    if (yOff !in this.indices || xOff !in this[yOff].indices) continue@direction
                     val char = this[yOff][xOff]
                     if (char != word[offsetIndex]) continue@direction
                     if (offsetIndex == offsetList.size-1) matches++
