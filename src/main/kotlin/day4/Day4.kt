@@ -32,8 +32,8 @@ fun  List<String>.findMatches(word: String, offsets: List<List<Pair<Int, Int>>>)
                     if (yOff !in this.indices || xOff !in this[yOff].indices) continue@direction
                     val char = this[yOff][xOff]
                     if (char != word[offsetIndex]) continue@direction
-                    if (offsetIndex == offsetList.size-1) matches++
                 }
+                matches++
             }
         }
     }
