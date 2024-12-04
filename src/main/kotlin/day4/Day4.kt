@@ -20,7 +20,7 @@ val offsets2 = listOf(
     listOf(Pair(0,0), Pair(1,1), Pair(-1,-1), Pair(-1,1), Pair(1,-1)),
 )
 
-fun  List<String>.findMatches(word: String, offsets: List<List<Pair<Int, Int>>>): Int {
+fun List<String>.findMatches(word: String, offsets: List<List<Pair<Int, Int>>>): Int {
     var matches = 0
 
     for (y in this.indices) {
