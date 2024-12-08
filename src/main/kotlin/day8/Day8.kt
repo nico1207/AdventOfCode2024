@@ -1,18 +1,17 @@
 package day8
 
 import Vec
+import for2D
 import readInput
 
 fun main() {
     val input = readInput(8, false).lines()
 
     val antennas = mutableMapOf<Char, List<Vec>>()
-    for (y in input.indices) {
-        for (x in input[y].indices) {
-            val char = input[y][x]
-            if (char == '.') continue
-            antennas[char] = antennas.getOrDefault(char, listOf()) + Vec(x, y)
-        }
+    for2D(input) { x, y ->
+        val char = input[y][x]
+        if (char == '.') return@for2D
+        antennas[char] = antennas.getOrDefault(char, listOf()) + Vec(x, y)
     }
 
     val antinodes = mutableSetOf<Vec>()
@@ -37,8 +36,4 @@ fun main() {
 
     // Part 2
     println(antinodes2.count { it liesIn input })
-}
-
-infix fun Vec.liesIn(grid: List<String>): Boolean {
-    return y in grid.indices && x in grid[y].indices
 }
