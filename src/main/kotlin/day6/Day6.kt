@@ -1,5 +1,6 @@
 package day6
 
+import Vec
 import readInput
 
 fun List<String>.walkPath(startPos: Vec): Set<Vec> {
@@ -49,4 +50,3 @@ fun main() {
     println(obstructions)
 }
 
-data class Vec(val x: Int, val y: Int)

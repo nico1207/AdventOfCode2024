@@ -28,7 +28,7 @@ fun canBeSolved(result: Long, nums: List<Long>, possibleOperators: List<Op>): Bo
 fun operatorCombinations(length: Int, possibleOperators: List<Op>): OperatorList {
     if (length == 1) return possibleOperators.map { listOf(it) }
 
-    var newOps = mutableListOf<List<Op>>()
+    val newOps = mutableListOf<List<Op>>()
 
     for (l in operatorCombinations(length - 1, possibleOperators)) {
         for (op in possibleOperators) {
