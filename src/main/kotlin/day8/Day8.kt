@@ -33,8 +33,12 @@ fun main() {
     }
 
     // Part 1
-    println(antinodes.count { (x, y) -> x in input[0].indices && y in input.indices })
+    println(antinodes.count { it liesIn input })
 
     // Part 2
-    println(antinodes2.count { (x, y) -> x in input[0].indices && y in input.indices })
+    println(antinodes2.count { it liesIn input })
+}
+
+infix fun Vec.liesIn(grid: List<String>): Boolean {
+    return y in grid.indices && x in grid[y].indices
 }
