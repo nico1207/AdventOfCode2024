@@ -18,10 +18,10 @@ data class Vec(val x: Int, val y: Int) {
     }
 }
 
-fun for2D(grid: List<String>, func: (Int, Int) -> Unit) {
+fun for2D(grid: List<String>, func: (Vec) -> Unit) {
     for (y in grid.indices) {
         for (x in grid[y].indices) {
-            func(x, y)
+            func(Vec(x,y))
         }
     }
 }

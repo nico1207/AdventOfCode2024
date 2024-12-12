@@ -8,7 +8,7 @@ fun main() {
     val input = readInput(8, false).lines()
 
     val antennas = mutableMapOf<Char, List<Vec>>()
-    for2D(input) { x, y ->
+    for2D(input) { (x, y) ->
         val char = input[y][x]
         if (char == '.') return@for2D
         antennas[char] = antennas.getOrDefault(char, listOf()) + Vec(x, y)

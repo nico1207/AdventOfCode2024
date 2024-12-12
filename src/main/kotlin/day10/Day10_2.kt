@@ -8,7 +8,7 @@ fun main() {
     val input = readInput(10, true).lines()
 
     val trailheads = mutableSetOf<Vec>()
-    for2D(input) { x, y ->
+    for2D(input) { (x, y) ->
         if (input[y][x] == '0') trailheads.add(Vec(x, y))
     }
 
