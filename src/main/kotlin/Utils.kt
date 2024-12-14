@@ -13,6 +13,10 @@ data class Vec(val x: Int, val y: Int) {
         return Vec(x * num, y * num)
     }
 
+    operator fun rem(other: Vec): Vec {
+        return Vec(Math.floorMod(x, other.x), Math.floorMod(y, other.y))
+    }
+
     infix fun liesIn(grid: List<String>): Boolean {
         return y in grid.indices && x in grid[y].indices
     }
