@@ -29,3 +29,7 @@ fun for2D(grid: List<String>, func: (Vec) -> Unit) {
         }
     }
 }
+
+fun MutableList<String>.set(pos: Vec, char: Char) {
+    this[pos.y] = StringBuilder(this[pos.y]).also { it.setCharAt(pos.x, char) }.toString()
+}
