@@ -1,7 +1,7 @@
 package day12
 
 import Vec
-import day10.offsets
+import day10.dirs
 import for2D
 import readInput
 
@@ -12,7 +12,7 @@ fun main() {
 
     for2D(input) { pos ->
         val char = input[pos.y][pos.x]
-        val neighbourRegions = offsets.mapNotNull {
+        val neighbourRegions = dirs.mapNotNull {
             val offPos = pos + it
             if (!(offPos liesIn input)) return@mapNotNull null
             val neighbour = input[offPos.y][offPos.x]
@@ -33,7 +33,7 @@ fun main() {
 
     val part1 = regions.sumOf { region ->
         val perimeter = region.sumOf { pos ->
-            offsets.filter {
+            dirs.filter {
                 val offPos = pos + it
                 !region.contains(offPos)
             }.size
@@ -47,12 +47,12 @@ fun main() {
         val sides = mutableMapOf<Vec, MutableList<MutableSet<Vec>>>()
         region.forEach { pos ->
             // I don't even know what this code does anymore, at some point I started changing random operations until the result was correct
-            offsets.forEach {
+            dirs.forEach {
                 val offPos = pos + it
                 if (!region.contains(offPos)) {
                     val sideVec = Vec(offPos.x * it.x, offPos.y * it.y)
                     val side = sides.getOrPut(sideVec) { mutableListOf() }
-                    side.firstOrNull { offsets.any { off -> it.contains(offPos + off) } }?.add(offPos) ?: side.add(mutableSetOf(offPos))
+                    side.firstOrNull { dirs.any { off -> it.contains(offPos + off) } }?.add(offPos) ?: side.add(mutableSetOf(offPos))
                 }
             }
         }

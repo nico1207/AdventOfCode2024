@@ -23,7 +23,7 @@ fun getRating(pos: Vec, input: List<String>): Int {
     val currVal = input[pos.y][pos.x]
     if (currVal == '9') return 1
 
-    return offsets.sumOf {
+    return dirs.sumOf {
         val offPos = pos + it
         if (offPos liesIn input && input[offPos.y][offPos.x] == currVal + 1) {
             return@sumOf getRating(offPos, input)

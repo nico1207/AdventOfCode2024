@@ -4,7 +4,7 @@ import Vec
 import for2D
 import readInput
 
-val offsets = listOf(
+val dirs = listOf(
     Vec(-1, 0), Vec(1, 0),  Vec(0, -1),  Vec(0, 1)
 )
 
@@ -22,7 +22,7 @@ fun main() {
             val curr = reachablePositions[i] ?: continue
             reachablePositions[i+1] = mutableSetOf()
             for (pos in curr) {
-                for (off in offsets) {
+                for (off in dirs) {
                     val offPos = pos + off
                     if (offPos liesIn input && input[offPos.y][offPos.x] == i+1) {
                         reachablePositions[i+1]!!.add(offPos)

@@ -33,3 +33,13 @@ fun for2D(grid: List<String>, func: (Vec) -> Unit) {
 fun MutableList<String>.set(pos: Vec, char: Char) {
     this[pos.y] = StringBuilder(this[pos.y]).also { it.setCharAt(pos.x, char) }.toString()
 }
+
+operator fun List<String>.get(pos: Vec): Char {
+    return this[pos.y][pos.x]
+}
+
+fun List<String>.find(char: Char): Vec {
+    val y = this.indexOfFirst { it.contains(char) }
+    val x = this[y].indexOf(char)
+    return Vec(x, y)
+}
