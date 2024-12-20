@@ -1,3 +1,5 @@
+import kotlin.math.abs
+
 fun readInput(day: Int, test: Boolean = false): String = object {}.javaClass.getResource("/Day$day/input${if (test) "_test" else ""}.txt")?.readText()!!
 
 data class Vec(val x: Int, val y: Int) {
@@ -19,6 +21,10 @@ data class Vec(val x: Int, val y: Int) {
 
     infix fun liesIn(grid: List<String>): Boolean {
         return y in grid.indices && x in grid[y].indices
+    }
+
+    fun manhattan(other: Vec): Int {
+        return abs(x - other.x) + abs(y - other.y)
     }
 }
 
